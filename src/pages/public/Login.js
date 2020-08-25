@@ -29,7 +29,7 @@ class Login extends React.Component {
     this.setState({ loading: true });
     this.props.doLogin(this.state);
     this.setState({ loading: false });
-    this.props.history.push("/dashboard");
+    this.props.history.push("/admin/dashboard");
   }
 
   render() {

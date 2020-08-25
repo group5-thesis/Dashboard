@@ -7,13 +7,17 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from "router/routerContainer/ProtectedRoute";
 import PublicRoute from "router/routerContainer/PublicRoute";
-import { publicRoutes, protectedRoutes, guestRoutes } from "router";
+import { publicRoutes, guestRoutes } from "router";
+import App from "pages/auth/App";
 
 const AppRoute = (props) => {
   return (
     <>
       <Router>
         <Switch>
+          <ProtectedRoute path="/admin" {...props.auth} component={App} />
+          <Route path="/admin" component={App} />
+
           {
             // for un-authenticated users ONLY
             publicRoutes.map((route, idx) => (
@@ -26,17 +30,6 @@ const AppRoute = (props) => {
               />
             ))
           }
-
-          {protectedRoutes.map((route, idx) => (
-            <ProtectedRoute
-              key={idx}
-              exact={route.exact}
-              path={route.path}
-              {...props.auth}
-              component={route.component}
-            />
-          ))}
-
           {guestRoutes.map((route, idx) => (
             <Route
               key={idx}

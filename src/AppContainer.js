@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, _) => ({
     }
     setTimeout(() => {
       dispatch(actionCreator(ActionTypes.AUTH_CHECKED));
-    });
+    },1000);
   }
 });
 export default connect(

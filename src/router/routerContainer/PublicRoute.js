@@ -9,7 +9,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
         !rest.auth.already_logged ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/dashboard" />
+          <Redirect to="/admin/dashboard" />
         )
       }
     />

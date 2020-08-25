@@ -1,7 +1,8 @@
 import PageNotFound from "pages/messages/PageNotFound";
 import Login from "pages/public/Login";
 import Homescreen from "pages/public/HomeScreen";
-import { Dashboard } from "pages/auth";
+import Others from "pages/auth/views/Others";
+import Dashboard from "pages/auth/views/Dashboard";
 
 const publicRoutes = [
   {
@@ -9,11 +10,21 @@ const publicRoutes = [
     path: "/login",
     exact: true,
   },
+  {
+    component: Login,
+    path: "/Register",
+    exact: true,
+  },
 ];
 const protectedRoutes = [
   {
     component: Dashboard,
     path: "/dashboard",
+    exact: true,
+  },
+  {
+    component: Others,
+    path: "/others",
     exact: true,
   },
 ];
