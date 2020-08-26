@@ -31,7 +31,7 @@ const TextInput = ({
             className="icon is-small is-left"
             style={{ display: isIcon.show ? "" : "none" }}
           >
-            <Icon path={isIcon.name} size={1} />
+            <Icon path={isIcon.name} size={0.8} />
           </span>
         </div>
       </Field>

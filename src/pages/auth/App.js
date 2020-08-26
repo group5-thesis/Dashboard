@@ -12,10 +12,13 @@ function App(props) {
         <Sidebar />
         <div className="column is-main-content">
           <NavBar />
-          <Routes props/>
+          {/* content reder below */}
+          <div class="container is-fluid px-5 py-5" >
+            <Routes props />
+          </div>
         </div>
       </div>
     </>
   );
 }
-export default App
+export default App;

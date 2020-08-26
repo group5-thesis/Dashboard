@@ -1,45 +1,45 @@
 import React from "react";
 const Card = ({ title, subtitle, image, children }) => (
-  <div v-for="card in cardData" key="card.id" class="column is-4">
-    <div class="card large">
-      <div class="card-image is-16by9">
+  <div v-for="card in cardData" key="card.id" className="column is-4">
+    <div className="card large">
+      <div className="card-image is-16by9">
         {() => {
           if (image) {
             return (
-              <figure class="image">
+              <figure className="image">
                 <img alt="Image" />
               </figure>
             );
           }
         }}
       </div>
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
+      <div className="card-content">
+        <div className="media">
+          <div className="media-left">
             {() => {
               if (image) {
                 return (
-                  <figure class="image is-48x48">
+                  <figure className="image is-48x48">
                     <img alt="Image" />
                   </figure>
                 );
               }
             }}
           </div>
-          <div class="media-content">
-            <p class="title is-4 no-padding">{title}</p>
+          <div className="media-content">
+            <p className="title is-4 no-padding">{title}</p>
             <p>
-              <span class="title is-6">
+              <span className="title is-6">
                 <a href=""> </a>{" "}
               </span>{" "}
             </p>
-            <p class="subtitle is-6">{subtitle}</p>
+            <p className="subtitle is-6">{subtitle}</p>
           </div>
         </div>
-        <div class="content">
+        <div className="content">
           {children}
-          <div class="background-icon">
-            <span class="icon-twitter"></span>
+          <div className="background-icon">
+            <span className="icon-twitter"></span>
           </div>
         </div>
       </div>

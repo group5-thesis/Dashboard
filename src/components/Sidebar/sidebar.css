@@ -1,0 +1,12 @@
+.avatar {
+  width: 80px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+.avatar img {
+  /* display: block; */
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid white;
+}

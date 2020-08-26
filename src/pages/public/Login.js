@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { mdiAccount, mdiKey } from "@mdi/js";
 import "assets/css/login.css";
@@ -37,60 +36,68 @@ class Login extends React.Component {
       <div>
         <section className="hero is-fullheight">
           <div className="hero-body">
-            <div className="login">
-              <img src={require("assets/img/logo.svg")} width="325px" />
-              <Field>
-                <TextInput
-                  label="username/email"
-                  value={this.state.email}
-                  placeholder="Input Username"
-                  isIcon={{ show: true, name: mdiAccount, float: "left" }}
-                  {...{
-                    onChange: (e) => {
-                      this.handleChange("email", e.target.value);
-                    },
-                  }}
-                ></TextInput>
-              </Field>
-              <Field>
-                <TextInput
-                  label="password"
-                  type="password"
-                  value={this.state.password}
-                  placeholder="**********"
-                  isIcon={{ show: true, name: mdiKey, float: "left" }}
-                  {...{
-                    onChange: (e) => {
-                      this.handleChange("password", e.target.value);
-                    },
-                  }}
-                ></TextInput>
-              </Field>
-              <br />
-              <Button
-                label="Login"
-                variant={{
-                  type: "is-block is-fullwidth is-medium",
-                  color: "primary",
-                  textColor: "white",
-                }}
-                {...{
-                  onClick: () => {
-                    this.attemptLogin();
-                  },
-                }}
-              />
-              <br />
-              <nav className="level">
-                <div className="level-item has-text-centered is-link">
-                  <Anchor label="Forgot Password?" />
-                </div>
-                <div className="level-item has-text-centered">
-                  <div>
-                    <Anchor label="Create Account" />
+            <div className="columns">
+              <div className="column is-8 is-offset-2">
+                <div className="login px-8 pb-6">
+                  <div className="login-header my-5 has-vertically-aligned-content is-8">
+                    <center>
+                      <img src={require("assets/img/Softype-clogo.png")} style={{width:"80%"}} />
+                    </center>
                   </div>
+                  <Field>
+                    <TextInput
+                      label="username/email"
+                      value={this.state.email}
+                      placeholder="Input Username"
+                      isIcon={{ show: true, name: mdiAccount, float: "left" }}
+                      {...{
+                        onChange: (e) => {
+                          this.handleChange("email", e.target.value);
+                        },
+                      }}
+                    ></TextInput>
+                  </Field>
+                  <Field>
+                    <TextInput
+                      label="password"
+                      type="password"
+                      value={this.state.password}
+                      placeholder="**********"
+                      isIcon={{ show: true, name: mdiKey, float: "left" }}
+                      {...{
+                        onChange: (e) => {
+                          this.handleChange("password", e.target.value);
+                        },
+                      }}
+                    ></TextInput>
+                  </Field>
+                  <br />
+                  <Button
+                    label="Login"
+                    variant={{
+                      type: "is-block is-fullwidth is-medium",
+                      color: "primary",
+                      textColor: "white",
+                    }}
+                    {...{
+                      onClick: () => {
+                        this.attemptLogin();
+                      },
+                    }}
+                  />
+                  <br />
+                  <nav className="level">
+                    <div className="level-item has-text-centered is-link">
+                      <Anchor label="Forgot Password?" />
+                    </div>
+                    <div className="level-item has-text-centered">
+                      <div>
+                        <Anchor label="Create Account" />
+                      </div>
+                    </div>
+                  </nav>
                 </div>
-              </nav>
+              </div>
             </div>
           </div>
         </section>
@@ -98,7 +105,6 @@ class Login extends React.Component {
     );
   }
 }
-
 const mapDispatchToProps = (dispatch, _) => ({
   async doLogin(credentials, onError) {
     postRequest()

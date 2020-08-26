@@ -21,11 +21,19 @@ const protectedRoutes = [
     component: Dashboard,
     path: "/dashboard",
     exact: true,
+    name:"Dashboard"
   },
   {
     component: Others,
     path: "/others",
-    exact: true,
+    name:"Others",
+    exact: false,
+  },
+  {
+    component: Others,
+    name:"Test",
+    path: "/test",
+    exact: false,
   },
 ];
 const guestRoutes = [
