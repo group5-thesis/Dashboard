@@ -94,7 +94,7 @@ function Sidebar(props) {
               >
                 <Link
                   className={`mb-2 	${
-                    current == "/admin" + item.path ? "is-active" : ""
+                    current === "/admin" + item.path ? "is-active" : ""
                   }`}
                   to={"/admin" + item.path}
                 >

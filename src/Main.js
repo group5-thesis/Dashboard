@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Loader from "components/Loader/index";
+import Loader from "components/SplashScreen/index";
 import AppRouter from "./AppRoute";
 export default class App extends Component {
   constructor(props) {

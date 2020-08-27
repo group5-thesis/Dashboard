@@ -13,7 +13,7 @@ function App(props) {
         <div className="column is-main-content">
           <NavBar />
           {/* content reder below */}
-          <div class="container is-fluid px-5 py-5" >
+          <div className="container is-fluid px-5 py-5" >
             <Routes props />
           </div>
         </div>

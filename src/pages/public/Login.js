@@ -121,7 +121,7 @@ const mapDispatchToProps = (dispatch, _) => ({
     //         }
     //     });
     //     const responseJSON = await authResponse.json();
-    //     if (authResponse.ok && authResponse.status == 200) {
+    //     if (authResponse.ok && authResponse.status === 200) {
 
     //         AsyncStorage.setItem('token', responseJSON.token)
     //             .then(() => dispatch(actionCreator(DashboardActionTypes.LOAD_DATA)))

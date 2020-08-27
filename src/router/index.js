@@ -29,12 +29,6 @@ const protectedRoutes = [
     name:"Others",
     exact: false,
   },
-  {
-    component: Others,
-    name:"Test",
-    path: "/test",
-    exact: false,
-  },
 ];
 const guestRoutes = [
   {

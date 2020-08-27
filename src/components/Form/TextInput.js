@@ -13,7 +13,11 @@ const TextInput = ({
   return (
     <>
       <Field>
-        <label className="label has-text-weight-semibold">{label}:</label>
+        {(function () {
+          return label ? (
+            <label className="label has-text-weight-semibold">{label}:</label>
+          ) : null;
+        })()}
         <div
           className={`control ${
             isIcon.show ? "has-icons-" + isIcon.float : ""
