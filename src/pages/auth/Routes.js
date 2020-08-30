@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { protectedRoutes } from "router";
+import Placeholder from "../messages/Placeholder";
 function Routes() {
   return (
     <Switch>
@@ -9,14 +10,13 @@ function Routes() {
           <Route
             path={"/admin" + route.path}
             exact
-            component={route.component}
+            component={route.component ? route.component : () => <Placeholder {...{ title: "Coming soon...", subtitle: "Site under construction.", route: "/admin" + route.path }} />}
             key={key}
           />
         );
       })}
-      <Redirect from="/admin/" to="/admin/dashboard" />
-      <Redirect from="/admin/*" to="/error/pagenotfound" />
-      <Route render={() => <h1>Not found!</h1>} />
+      <Route path="*" component={() => <Placeholder {...{ title: "404", subtitle: "Page not found." }} />} />
+      <Redirect from="/admin" to="/admin/dashboard" />
     </Switch>
   );
 }

@@ -34,7 +34,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <section className="hero is-fullheight">
+        <section className="login-section hero is-fullheight">
           <div className="hero-body">
             <div className="columns">
               <div className="column is-8 is-offset-2">

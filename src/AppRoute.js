@@ -9,6 +9,7 @@ import ProtectedRoute from "router/routerContainer/ProtectedRoute";
 import PublicRoute from "router/routerContainer/PublicRoute";
 import { publicRoutes, guestRoutes } from "router";
 import App from "pages/auth/App";
+import Placeholder from "pages/messages/Placeholder";
 
 const AppRoute = (props) => {
   return (
@@ -16,8 +17,7 @@ const AppRoute = (props) => {
       <Router>
         <Switch>
           <ProtectedRoute path="/admin" {...props.auth} component={App} />
-          <Route path="/admin" component={App} />
-
+          <Route path="/admin/" component={App} />
           {
             // for un-authenticated users ONLY
             publicRoutes.map((route, idx) => (
@@ -39,7 +39,8 @@ const AppRoute = (props) => {
               component={route.component}
             />
           ))}
-          <Redirect from="*" to="/error/pagenotfound" />
+
+          <Route path="*" component={() => <Placeholder {...{ title: "404", subtitle: "Page not found." }} />} />
         </Switch>
       </Router>
     </>

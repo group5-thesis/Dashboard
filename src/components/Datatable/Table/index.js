@@ -80,7 +80,7 @@ const Table = ({
   return (
     <>
       <div>
-        <table className="table is-bordered  is-hoverable ">
+        <table className="table is-hoverable ">
           <TableHeader
             headers={headers}
             onSorting={(field, order) => setSorting({ field, order })}

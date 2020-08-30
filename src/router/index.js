@@ -1,7 +1,5 @@
-import PageNotFound from "pages/messages/PageNotFound";
+import Placeholder from "pages/messages/Placeholder";
 import Login from "pages/public/Login";
-import Homescreen from "pages/public/HomeScreen";
-import Others from "pages/auth/views/Others";
 import Dashboard from "pages/auth/views/Dashboard";
 
 const publicRoutes = [
@@ -21,24 +19,40 @@ const protectedRoutes = [
     component: Dashboard,
     path: "/dashboard",
     exact: true,
-    name:"Dashboard"
+    name: "Dashboard"
+  },
+ 
+  {
+    path: "/leave/requests",
+    name: "Others",
+    exact: false,
   },
   {
-    component: Others,
-    path: "/others",
-    name:"Others",
+    path: "/leave/calendar",
+    name: "Others",
+    exact: false,
+  },
+  {
+    path: "/employee/performance",
+    name: "Others",
+    exact: false,
+  },
+  {
+    path: "/employee/organization",
+    name: "Others",
+    exact: false,
+  },
+  {
+    path: "/settings",
+    name: "Others",
     exact: false,
   },
 ];
 const guestRoutes = [
   {
-    component: Homescreen,
+    component: Login,
     path: "/",
     exact: true,
-  },
-  {
-    component: PageNotFound,
-    path: "*",
   },
 ];
 export { guestRoutes, protectedRoutes, publicRoutes };
