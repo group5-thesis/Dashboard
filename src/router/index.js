@@ -43,6 +43,11 @@ const protectedRoutes = [
     exact: false,
   },
   {
+    path: "/repository",
+    name: "Others",
+    exact: false,
+  },
+  {
     path: "/settings",
     name: "Others",
     exact: false,

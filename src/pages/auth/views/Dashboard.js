@@ -84,14 +84,3 @@ export default function Dashboard(props) {
     </div>
   );
 }
-
-// const mapStateToProps = (state) => ({
-//   appState: state.appState,
-// });
-// const mapDispatchToProps = (dispatch, _) => ({
-//   async doLogout() {
-//     dispatch(actionCreator(ActionTypes.LOGOUT));
-//     localStorage.removeItem("token");
-//   },
-// });
-// export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

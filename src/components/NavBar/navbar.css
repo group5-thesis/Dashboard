@@ -1,19 +1,118 @@
-nav.navbar {
-  border-top: 4px solid #276cda;
-  margin-bottom: 1rem;
-}
-.navbar-item.brand-text {
+
+/* .navbar-item.brand-text {
   font-weight: 300;
 }
 .navbar-item,
 .navbar-link {
   font-size: 14px;
   font-weight: 700;
+} */
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
-#navMenu.is-active {
-    -webkit-transition: all 0.5s ease !important;
-    -moz-transition: all 0.5s ease !important;
-    -o-transition: all 0.5s ease !important;
-    transition: all 0.5s ease !important;
+.navbar {
+  background-color: white;
+  min-height: 3.25rem;
+  position: relative;
+  z-index: 30;
+}
+
+
+.navbar.is-fixed-bottom, .navbar.is-fixed-top {
+  left: 260px;
+  margin:0;
+  position: fixed;
+  right: 0;
+  z-index: 800;
+}
+.navbar.is-fixed-top {
+  top: 0;
+}
+
+nav.navbar .navbar-item.has-user-avatar .is-user-avatar {
+  margin-right: 0.75rem;
+  display: inline-flex;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+nav.navbar .navbar-item.has-divider {
+  border-right: 1px solid rgba(219, 219, 219, 0.25);
+}
+
+
+nav.navbar .navbar-item.has-dropdown {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+nav.navbar .navbar-item.has-dropdown .navbar-link {
+  padding-right: 1.125rem;
+  padding-left: 1.125rem;
+}
+
+
+@media screen and (max-width: 1023px) {
+  nav.navbar {
+    display: flex;
+    padding-right: 0;
+  }
+  nav.navbar .navbar-brand {
+    flex: 1;
+  }
+  nav.navbar .navbar-brand.is-right {
+    flex: none;
+  }
+  nav.navbar .navbar-item.no-left-space-touch {
+    padding-left: 0;
+  }
+  nav.navbar .navbar-menu {
+    position: absolute;
+    width: 100vw;
+    padding-top: 0;
+    top: 3.25rem;
+    left: 0;
+  }
+  nav.navbar .navbar-menu .navbar-item .icon:first-child {
+    margin-right: 0.75rem;
+  }
+  nav.navbar .navbar-menu .navbar-item.has-dropdown > .navbar-link {
+    background-color: whitesmoke;
+  }
+  nav.navbar .navbar-menu .navbar-item.has-dropdown > .navbar-link .icon:last-child {
+    display: none;
+  }
+  nav.navbar .navbar-menu .navbar-item.has-user-avatar > .navbar-link {
+    display: flex;
+    align-items: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+
+.is-user-avatar.has-max-width {
+  max-width: 7rem;
+}
+
+.is-user-avatar.is-aligned-center {
+  margin: 0 auto;
+}
+
+.is-user-avatar img {
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 769px) {
+  .navbar{
+    left: 0!important;
+  }
 }

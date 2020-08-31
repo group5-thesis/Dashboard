@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { actionCreator, ActionTypes } from "app_utils/actions";
-import { mdiViewDashboard, mdiAccountGroup, mdiCalendar, mdiChevronUp, mdiChevronDown, mdiAirplane, mdiHumanCapacityDecrease, mdiAccountStarOutline, mdiInboxArrowDown, mdiAccountCog, mdiLogout } from "@mdi/js";
+import { mdiViewDashboard, mdiAccountGroup, mdiCalendar, mdiChevronUp, mdiChevronDown, mdiAirplane, mdiHumanCapacityDecrease, mdiAccountStarOutline, mdiInboxArrowDown, mdiAccountCog, mdiLogout, mdiAccountTie, mdiFolderMultiple } from "@mdi/js";
 import "./sidebar.css";
 import Icon from "@mdi/react";
 function Sidebar(props) {
@@ -20,6 +18,11 @@ function Sidebar(props) {
             icon: mdiAccountGroup,
             collapsed: true, //current.includes("admin/employee"),
             children: [
+                {
+                    title: "Employee Profile",
+                    path: "/profiles",
+                    icon: mdiAccountTie,
+                },
                 {
                     title: "Organization Chart",
                     path: "/organization",
@@ -53,6 +56,11 @@ function Sidebar(props) {
         },
 
         {
+            title: "Company Repository",
+            path: "/repository",
+            icon: mdiFolderMultiple,
+        },
+        {
             title: "Account Settings",
             path: "/settings",
             icon: mdiAccountCog,
@@ -78,13 +86,10 @@ function Sidebar(props) {
     };
 
     return (
-        <div className="column sidebar is-sidebar-menu is-hidden-mobile">
-            <aside className="menu mx-3 my-3 ">
-                <img
-                    className="mt-3 mb-5 image "
-                    style={{ width: "40%" }}
-                    src={require("assets/img/Softype-clogo.png")}
-                />
+        <div className={`column sidebar is-sidebar-menu is-hidden-mobile `} style={{
+            marginLeft: props.isOpen ? "0px" : "-260px"
+        }} id="sidebar" >
+            <aside className="menu mx-3 my-6">
                 <center>
                     <figure className="image is-96x96">
                         <img
@@ -150,7 +155,7 @@ function Sidebar(props) {
                                             {" "}<Icon path={item.collapsed ? mdiChevronUp : mdiChevronDown} size={0.5}></Icon>{" "}
 
                                         </a>
-                                        {(function() {
+                                        {(function () {
                                             if (item.collapsed) {
                                                 let obj = {
                                                     id: idx,
@@ -192,7 +197,7 @@ function Sidebar(props) {
                         <li
                             className="is-right"
                             onClick={() => {
-                                props.doLogout()
+                                props.redux.doLogout()
                             }}
                         >
                             <a
@@ -206,17 +211,7 @@ function Sidebar(props) {
                 </div>
             </aside>
         </div>
+
     );
 }
-
-const mapStateToProps = (state) => ({
-    appState: state.appState,
-});
-const mapDispatchToProps = (dispatch, _) => ({
-    async doLogout() {
-        dispatch(actionCreator(ActionTypes.LOGOUT));
-        localStorage.removeItem("token");
-    },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default Sidebar;
