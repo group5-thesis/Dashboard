@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { actionCreator, ActionTypes } from "app_utils/actions";
+// import { actionCreator, ActionTypes } from "app_utils/actions";
 import { Icon } from "@mdi/react";
 import { mdiMenu, mdiBell, mdiMail, mdiFaceProfile, mdiLogout } from "@mdi/js";
 function NavBar(props) {
@@ -12,17 +12,17 @@ function NavBar(props) {
   let menuItems = [
     {
       title: "My Profile",
-      path: "#",
+      path: "/profile",
       icon: mdiFaceProfile
     },
     {
       title: "Messages",
-      path: "#",
+      path: "/messages",
       icon: mdiMail
     },
     {
       title: "Notifications",
-      path: "#",
+      path: "/notifications",
       icon: mdiBell
     },
     {
@@ -35,7 +35,6 @@ function NavBar(props) {
     },
   ]
   function renderMenuItem(item) {
-    console.log(item);
     return (
       <div key={`menu.${item.title}`}>
         {function () {
@@ -43,7 +42,7 @@ function NavBar(props) {
             return <hr className="navbar-divider" key={`divider.${item.title}`} />
           }
         }()}
-        <p  onClick={item.onClick} className="navbar-item" style={{ cursor: "pointer" }}>
+        <p onClick={item.onClick} className="navbar-item" style={{ cursor: "pointer" }}>
           <span className="icon">
             <Icon path={item.icon} size={0.6} />
           </span>
@@ -84,7 +83,7 @@ function NavBar(props) {
                     item["id"] = id;
                     if (!item.onClick) {
                       item["onClick"] = () => {
-                        history.pushState(item.path)
+                        history.push(item.path)
                       }
                     }
                     return renderMenuItem(item)

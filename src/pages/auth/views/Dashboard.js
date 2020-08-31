@@ -2,8 +2,8 @@ import React from "react";
 // import { useHistory } from "react-router-dom";
 // import { ActionTypes, actionCreator } from "app_utils/actions";
 // import { connect } from "react-redux";
-// import Datatable from "components/Datatable";
-// import Modal from "components/Modal";
+import Datatable from "components/Datatable";
+import Modal from "components/Modal";
 import { Tile } from "components/Card";
 import { mdiAccountGroupOutline, mdiClockOutline, mdiAccountMultipleRemoveOutline, mdiClipboardListOutline } from "@mdi/js";
 import { colors } from "assets/theme"
@@ -14,7 +14,7 @@ export default function Dashboard(props) {
     { name: "Name", field: "name", sortable: true },
     { name: "Email", field: "email", sortable: true },
     { name: "Comment", field: "body", sortable: false },
-    { name: "Action", field: "", sortable: false },
+    // { name: "Action", field: "", sortable: false },
   ];
   let data = Array(100)
     .fill()
@@ -79,8 +79,8 @@ export default function Dashboard(props) {
         }} />
       </div>
 
-      {/* <Datatable {...{ data, headers, actions, title: "MY DATATABLE" }} />
-      <Modal label="Toggle Modal"></Modal> */}
+      <Datatable {...{ data, headers, title: "MY DATATABLE" }} />
+      <Modal label="Toggle Modal"></Modal>
     </div>
   );
 }

@@ -21,7 +21,7 @@ const DataTable = ({
         <p className="card-header-title">{title}</p>
       </header>
       <div className="card-content">
-        {/* {(function () {
+        {(function () {
           if (enableSearch) {
             return (
               <Search
@@ -32,7 +32,7 @@ const DataTable = ({
               />
             );
           }
-        })()} */}
+        })()}
         <div className="content">
           <Table
             {...{

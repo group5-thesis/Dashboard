@@ -4,87 +4,13 @@ import { mdiViewDashboard, mdiAccountGroup, mdiCalendar, mdiChevronUp, mdiChevro
 import "./sidebar.css";
 import Icon from "@mdi/react";
 function Sidebar(props) {
-    let history = useHistory();
-    const [current, setCurrent] = useState(history.location.pathname)
-    const [_navigation, setnavigation] = useState([
-        {
-            title: "Dashboard",
-            path: "/dashboard",
-            icon: mdiViewDashboard,
-        },
-        {
-            title: "Employee Directory",
-            route: "/employee",
-            icon: mdiAccountGroup,
-            collapsed: true, //current.includes("admin/employee"),
-            children: [
-                {
-                    title: "Employee Profile",
-                    path: "/profiles",
-                    icon: mdiAccountTie,
-                },
-                {
-                    title: "Organization Chart",
-                    path: "/organization",
-                    icon: mdiHumanCapacityDecrease,
-                },
-                {
-                    title: "Performance Reviews",
-                    path: "/performance",
-                    icon: mdiAccountStarOutline,
-                },
-            ]
-        },
-        {
-            title: "Leave Management",
-            icon: mdiAirplane,
-            collapsed: true, //current.includes("admin/leave"),
-            route: "/leave",
-            children: [
-                {
-                    title: "Leave Requests",
-                    path: "/requests",
-                    icon: mdiInboxArrowDown
-                },
-                {
-                    title: "Leave Calendar",
-                    path: "/calendar",
-                    icon: mdiCalendar,
-                },
-
-            ]
-        },
-
-        {
-            title: "Company Repository",
-            path: "/repository",
-            icon: mdiFolderMultiple,
-        },
-        {
-            title: "Account Settings",
-            path: "/settings",
-            icon: mdiAccountCog,
-        },
-    ]);
     let badgeStyle = {
         height: "12px",
         minWidth: "12px",
         marginLeft: "25px",
         marginBottom: "7px",
-    };
-    let handleClick = (isMain = false, item) => {
-        let updatedNavigation = _navigation.map((el, id) => {
-            if (isMain) {
-                if (id === item.id) {
-                    el.collapsed = item.collapsed;
-                }
-            }
-            return el;
-        });
-        setCurrent(history.location.pathname);
-        setnavigation(updatedNavigation);
-    };
-
+      };
+    let {current , _navigation ,handleClick  } = props;
     return (
         <div className={`column sidebar is-sidebar-menu is-hidden-mobile `} style={{
             marginLeft: props.isOpen ? "0px" : "-260px"
