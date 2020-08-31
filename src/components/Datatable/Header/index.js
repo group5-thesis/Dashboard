@@ -15,22 +15,26 @@ const Header = ({ headers, onSorting }) => {
   return (
     <thead>
       <tr>
-        {headers.map(({ name, field, sortable }, id) => (
-          <th
-            key={id+name}
-            onClick={() => (sortable ? onSortingChange(field) : null)}
-          >
-            {name}
-            {sortingField && sortingField === field && (
-              <Icon
-                path={
-                  sortingOrder === "asc" ? mdiSortAscending : mdiSortDescending
-                }
-                size={0.5}
-              />
-            )}
-          </th>
-        ))}
+        {headers.map(({ name, field, sortable ,hidden }, id) => {
+          if (!hidden) {
+            return (
+              <th
+                key={id+name}
+                onClick={() => (sortable ? onSortingChange(field) : null)}
+              >
+                {name}
+                {sortingField && sortingField === field && (
+                  <Icon
+                    path={
+                      sortingOrder === "asc" ? mdiSortAscending : mdiSortDescending
+                    }
+                    size={0.5}
+                  />
+                )}
+              </th>
+            )
+          }
+         })}
       </tr>
     </thead>
   );

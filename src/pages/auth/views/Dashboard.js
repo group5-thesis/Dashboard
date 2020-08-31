@@ -10,7 +10,7 @@ import { colors } from "assets/theme"
 
 export default function Dashboard(props) {
   const headers = [
-    { name: "No#", field: "id", sortable: false },
+    { name: "No#", field: "id", sortable: false, hidden: true },
     { name: "Name", field: "name", sortable: true },
     { name: "Email", field: "email", sortable: true },
     { name: "Comment", field: "body", sortable: false },

@@ -86,14 +86,18 @@ const Table = ({
             onSorting={(field, order) => setSorting({ field, order })}
           />
           <tbody>
-            {initData.map((data) => (
-              <tr key={data.id}>
-                {Object.keys(data).map(function (key, idx) {
-                  return <td key={idx}>{data[key]}</td>;
-                })}
-                {renderActions(data)}
-              </tr>
-            ))}
+            {initData.map((data) => {
+              return (
+                <tr key={data.id} >
+                  {Object.keys(data).map(function (key, idx) {
+                    if (!headers[idx].hidden) {
+                      return <td className="has-text-center" key={idx}>{data[key]}</td>;
+                    } return null
+
+                  })}
+                  {renderActions(data)}
+                </tr>)
+            })}
           </tbody>
         </table>
       </div>
