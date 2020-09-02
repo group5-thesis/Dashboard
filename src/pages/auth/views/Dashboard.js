@@ -10,24 +10,29 @@ import { colors } from "assets/theme"
 
 export default function Dashboard(props) {
   const headers = [
-    { name: "No#", field: "id", sortable: false, hidden: true },
+    // { name: "No#", field: "id", sortable: false, hidden: true },
     { name: "Name", field: "name", sortable: true },
     { name: "Email", field: "email", sortable: true },
     { name: "Comment", field: "body", sortable: false },
     // { name: "Action", field: "", sortable: false },
   ];
-  let data = Array(100)
-    .fill()
-    .map((el, i) => {
-      i = i;
-      return {
-        id: i,
-        name: "name" + i,
-        email: "email" + i * 444,
-        body: "body" + i,
-      };
-    });
+  // let data = Array(3)
+  //   .fill()
+  //   .map((el, i) => {
+  //     i = i;
+  //     return {
+  //       id: i,
+  //       name: "name" + i,
+  //       email: "email" + i * 444,
+  //       body: "body" + i,
+  //     };
+  //   });
 
+
+  let data = [
+    { "name": "yol", "email": "bes", "body": "pren" },
+    { "name": "bes", "email": "yol", "body": "test" },
+    { "name": "name2", "email": "email888", "body": "yol" }];
   let deleteRow = (id) => {
     alert(id);
   };

@@ -7,18 +7,30 @@ const Table = ({
   headers,
   data,
   currentPage,
-  search,
+  search,//{key:"",field:[]},
   itemsPerPage,
   actions = [],
 }) => {
-  const [sorting, setSorting] = useState({ field: "", order: "" });
+  const [sorting, setSorting] = useState({ field: "", order: ""});
   const initData = useMemo(() => {
     let computedData = data;
-    if (search) {
+    if (search.key) {
       computedData = computedData.filter((_data) => {
         return (
-          _data.name.toLowerCase().includes(search.toLowerCase()) ||
-          _data.email.toLowerCase().includes(search.toLowerCase())
+          // _data.name.toLowerCase().includes(search.toLowerCase()) ||
+          // _data.email.toLowerCase().includes(search.toLowerCase())
+          // search.field.map()
+          data = search.field.filter(item => {
+            for(let igit in data){
+              if(item[igit] === undefined || item[igit] !== data[igit]){
+                console.log(data)
+                return data.name
+              }
+              console.log(data)
+              return true
+            }
+          })
+
         );
       });
     }
