@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { ActionTypes, actionCreator } from "app_utils/actions";
-import { mdiViewDashboard, mdiAccountGroup, mdiCalendar, mdiChevronUp, mdiChevronDown, mdiAirplane, mdiHumanCapacityDecrease, mdiAccountStarOutline, mdiInboxArrowDown, mdiAccountCog, mdiLogout, mdiAccountTie, mdiFolderMultiple } from "@mdi/js";
+import { mdiViewDashboard, mdiAccountGroup, mdiCalendar, mdiAirplane, mdiHumanCapacityDecrease, mdiAccountStarOutline, mdiInboxArrowDown, mdiAccountCog, mdiAccountTie, mdiFolderMultiple } from "@mdi/js";
 import { connect } from "react-redux";
 import Sidebar from "components/Sidebar";
 import NavBar from "components/NavBar";

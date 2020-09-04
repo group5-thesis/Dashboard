@@ -7,7 +7,7 @@ const Card = ({ title, subtitle, image, children }) => (
           if (image) {
             return (
               <figure className="image">
-                <img alt="Image" />
+                <img alt={title} />
               </figure>
             );
           }
@@ -20,7 +20,7 @@ const Card = ({ title, subtitle, image, children }) => (
               if (image) {
                 return (
                   <figure className="image is-48x48">
-                    <img alt="Image" />
+                    <img alt={title} />
                   </figure>
                 );
               }
@@ -30,7 +30,7 @@ const Card = ({ title, subtitle, image, children }) => (
             <p className="title is-4 no-padding">{title}</p>
             <p>
               <span className="title is-6">
-                <a href=""> </a>{" "}
+                <a href="#home"> </a>{" "}
               </span>{" "}
             </p>
             <p className="subtitle is-6">{subtitle}</p>

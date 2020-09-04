@@ -41,7 +41,7 @@ class Login extends React.Component {
                 <div className="login px-8 pb-6">
                   <div className="login-header my-5 has-vertically-aligned-content is-8">
                     <center>
-                      <img src={require("assets/img/Softype-clogo.png")} style={{width:"80%"}} />
+                      <img src={require("assets/img/Softype-clogo.png")} style={{width:"80%"}} alt="logo" />
                     </center>
                   </div>
                   <Field>

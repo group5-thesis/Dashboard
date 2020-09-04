@@ -8,34 +8,37 @@ const PaginationComponent = ({
   onPageChange,
 }) => {
   const [totalPages, setTotalPages] = useState(0);
-  let [prev, setPrev] = useState(currentPage);
+  const [prev, setPrev] = useState(currentPage);
   useEffect(() => {
-    if (total > 0 && itemsPerPage > 0)
+    if (total > 0 && itemsPerPage > 0) {
       setTotalPages(Math.ceil(total / itemsPerPage));
+    }
   }, [total, itemsPerPage]);
 
   const paginationItems = useMemo(() => {
     const pages = [];
     for (let i = prev; i <= prev + 4; i++) {
-      pages.push(
-        <Button
-          label={i}
-          key={"btn."+(i+currentPage)}
-          variant={{
-            type: ` pagination-link button  mr-1`,
-            color: i === currentPage ? "primary" : "",
-            textColor:i === currentPage ? "white" : "black",
-          }}
-          {...{
-            onClick: () => {
-              onPageChange(i);
-            },
-          }}
-        />
-      );
+      if (i <= totalPages) {
+        pages.push(
+          <Button
+            label={i}
+            key={"btn." + (i + currentPage)}
+            variant={{
+              type: ` pagination-link button  mr-1`,
+              color: i === currentPage ? "primary" : "",
+              textColor: i === currentPage ? "white" : "black",
+            }}
+            {...{
+              onClick: () => {
+                onPageChange(i);
+              },
+            }}
+          />
+        );
+      }
     }
     return pages;
-  }, [totalPages, currentPage]);
+  }, [currentPage, onPageChange, prev, totalPages]);
 
   function handleChangePage(type) {
     switch (type) {
@@ -58,7 +61,7 @@ const PaginationComponent = ({
 
   return (
     <nav className="pagination is-centered  is-small">
-      <div className="pagination-list">{paginationItems}</div>
+       <div className="pagination-list">{paginationItems}</div>
       <button
         className="pagination-previous"
         onClick={() => {

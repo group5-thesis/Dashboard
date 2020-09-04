@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, Field } from "components/Form";
 import { mdiMagnify } from "@mdi/js";
 
 const Search = ({ onSearch }) => {
-  const [search, setSearch] = useState("");
-
+  const [search, setSearch] = useState({ key: "", field: [] });
   const onInputChange = (value) => {
-    setSearch(value);
-    onSearch(value);
+    setSearch({ key: value.toLocaleLowerCase(), field: search.field });
   };
+  useEffect(() => {
+    onSearch(search);
+  }, [search ,onSearch]);
   return (
     <Field>
       <TextInput
-        value={search}
+        value={search.key}
         placeholder="Search"
         isIcon={{ show: true, name: mdiMagnify, float: "left" }}
         {...{

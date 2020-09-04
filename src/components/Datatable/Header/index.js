@@ -34,6 +34,7 @@ const Header = ({ headers, onSorting }) => {
               </th>
             )
           }
+          return null;
          })}
       </tr>
     </thead>

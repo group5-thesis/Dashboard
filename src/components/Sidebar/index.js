@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { mdiViewDashboard, mdiAccountGroup, mdiCalendar, mdiChevronUp, mdiChevronDown, mdiAirplane, mdiHumanCapacityDecrease, mdiAccountStarOutline, mdiInboxArrowDown, mdiAccountCog, mdiLogout, mdiAccountTie, mdiFolderMultiple } from "@mdi/js";
+import React from "react";
+import { Link } from "react-router-dom";
+import { mdiChevronUp, mdiChevronDown, mdiLogout } from "@mdi/js";
 import "./sidebar.css";
 import Icon from "@mdi/react";
 function Sidebar(props) {
@@ -9,8 +9,8 @@ function Sidebar(props) {
         minWidth: "12px",
         marginLeft: "25px",
         marginBottom: "7px",
-      };
-    let {current , _navigation ,handleClick  } = props;
+    };
+    let { current, _navigation, handleClick } = props;
     return (
         <div className={`column sidebar is-sidebar-menu is-hidden-mobile `} style={{
             marginLeft: props.isOpen ? "0px" : "-260px"
@@ -20,6 +20,7 @@ function Sidebar(props) {
                     <figure className="image is-96x96">
                         <img
                             className="is-rounded"
+                            alt="avatar"
                             src={require("assets/img/logo.svg")}
                             style={
                                 {
@@ -70,6 +71,7 @@ function Sidebar(props) {
                                         });
                                     }}>
                                         <a
+                                            href="# "
                                             className={`mb-2 	${
                                                 (current.includes(item.route) && !item.collapsed) ?
                                                     "is-active" : ""
@@ -127,6 +129,7 @@ function Sidebar(props) {
                             }}
                         >
                             <a
+                                href="#logout"
                                 className={`mb-2`}
                             >
                                 <Icon path={mdiLogout} size={0.6}></Icon>{" "}

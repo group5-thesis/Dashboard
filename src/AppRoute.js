@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 import ProtectedRoute from "router/routerContainer/ProtectedRoute";
 import PublicRoute from "router/routerContainer/PublicRoute";

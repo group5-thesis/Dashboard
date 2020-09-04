@@ -58,10 +58,11 @@ function NavBar(props) {
     <>
       <nav id="navbar-main " className="navbar has-shadow is-fixed-top" style={{ left: props.isOpen ? "260px" : "0" }}>
         <div className="navbar-brand">
-          <a className="navbar-item brand-text" style={{ fontWeight: "bold" }}>
+          <a className="navbar-item brand-text"  href="#logo" style={{ fontWeight: "bold" }} >
             <Icon onClick={props.toggle} path={mdiMenu} size={1} className="is-hidden-mobile" />
             <img
               className=" image "
+              alt="logo"
               style={{ width: "30%" }}
               src={require("assets/img/Softype-clogo.png")}
             />
@@ -70,7 +71,7 @@ function NavBar(props) {
         <div className={`navbar-menu fadeIn animated faster ${isActive ? "is-active" : ""}`} id="navbar-menu">
           <div className="navbar-end">
             <div className="navbar-item has-dropdown has-dropdown-with-icons has-user-avatar is-hoverable">
-              <a className="navbar-link is-arrowless">
+              <a className="navbar-link is-arrowless" href="#user">
                 <div className="is-user-avatar">
                   <img src="https://avatars.dicebear.com/v2/initials/yol-torres.svg" alt="John Doe" />
                 </div>

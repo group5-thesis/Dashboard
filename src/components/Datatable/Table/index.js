@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { mdiDeleteCircle, mdiCircleEditOutline } from "@mdi/js";
 import Icon from "@mdi/react";
 import TableHeader from "../Header";
-import { colors } from "assets/theme";
+// import { colors } from "assets/theme";
 const Table = ({
   headers,
   data,
@@ -11,17 +11,26 @@ const Table = ({
   itemsPerPage,
   actions = [],
 }) => {
+
   const [sorting, setSorting] = useState({ field: "", order: "" });
   const initData = useMemo(() => {
     let computedData = data;
-    if (search) {
-      computedData = computedData.filter((_data) => {
-        return (
-          _data.name.toLowerCase().includes(search.toLowerCase()) ||
-          _data.email.toLowerCase().includes(search.toLowerCase())
-        );
-      });
-    }
+    computedData = computedData.filter((_data) => {
+      // if (search.key) {
+      // let fields = search.field;
+      // if (fields.length === 0) {
+      //   fields = Object.keys(_data);
+      // }
+      // for (let i = 0; i < fields.length; i++) {
+      //   let field = fields[i].toLowerCase();
+      //   if ((_data[field]).toString().toLowerCase().includes(search.key.toLowerCase())) {
+      //     return true;
+      //   }
+      // }
+      // }
+      return _data.name.toLowerCase().includes(search.key);
+
+    });
     //Sorting data
     if (sorting.field) {
       const reversed = sorting.order === "asc" ? 1 : -1;
@@ -35,7 +44,8 @@ const Table = ({
       (currentPage - 1) * itemsPerPage,
       (currentPage - 1) * itemsPerPage + itemsPerPage
     );
-  }, [data, currentPage, search, sorting]);
+
+  }, [data, currentPage, search, sorting, itemsPerPage]);
 
   function renderActions(data) {
     if (actions.length) {
@@ -86,9 +96,9 @@ const Table = ({
             onSorting={(field, order) => setSorting({ field, order })}
           />
           <tbody>
-            {initData.map((data) => {
+            {initData.map((data, id) => {
               return (
-                <tr key={data.id} >
+                <tr key={id} >
                   {Object.keys(data).map(function (key, idx) {
                     if (!headers[idx].hidden) {
                       return <td className="has-text-center" key={idx}>{data[key]}</td>;

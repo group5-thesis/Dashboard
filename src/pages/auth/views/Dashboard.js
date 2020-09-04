@@ -10,34 +10,38 @@ import { colors } from "assets/theme"
 
 export default function Dashboard(props) {
   const headers = [
-    { name: "No#", field: "id", sortable: false, hidden: true },
+    // { name: "No#", field: "id", sortable: false, hidden: true },
     { name: "Name", field: "name", sortable: true },
     { name: "Email", field: "email", sortable: true },
     { name: "Comment", field: "body", sortable: false },
     // { name: "Action", field: "", sortable: false },
   ];
-  let data = Array(100)
+  let data = Array(200)
     .fill()
     .map((el, i) => {
-      i = i;
       return {
-        id: i,
         name: "name" + i,
         email: "email" + i * 444,
         body: "body" + i,
       };
     });
 
-  let deleteRow = (id) => {
-    alert(id);
-  };
-  let editRow = (payload) => {
-    alert(JSON.stringify(payload));
-  };
-  let actions = [
-    { type: "edit", name: "Update", callback: editRow },
-    { type: "delete", name: "Delete", callback: deleteRow },
-  ];
+
+  // let data = [
+  //   { "name": "yol", "email": "bes", "body": "pren" },
+  //   { "name": "bes", "email": "yol", "body": "test" },
+  //   { "name": "name2", "email": "email888", "body": "yol" }];
+
+  // let deleteRow = (id) => {
+  //   alert(id);
+  // };
+  // let editRow = (payload) => {
+  //   alert(JSON.stringify(payload));
+  // };
+  // let actions = [
+  //   { type: "edit", name: "Update", callback: editRow },
+  //   { type: "delete", name: "Delete", callback: deleteRow },
+  // ];
   return (
     <div className="section">
       <div className="tile is-ancestor">

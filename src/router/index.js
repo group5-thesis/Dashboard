@@ -1,4 +1,3 @@
-import Placeholder from "pages/messages/Placeholder";
 import Login from "pages/public/Login";
 import Dashboard from "pages/auth/views/Dashboard";
 

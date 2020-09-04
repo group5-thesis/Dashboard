@@ -1,11 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import Button from "components/Button";
+// import { useHistory } from "react-router-dom";
+// import Button from "components/Button";
 export default function Placeholder({ title, subtitle,route }) {
-  let history = useHistory();
-  function goBackHome() {
-    history.push("/");
-  }
+  // let history = useHistory();
+  // function goBackHome() {
+  //   history.push("/");
+  // }
   return (
     <section className="hero is-fullheight">
       <div className="hero-body">
